@@ -68,3 +68,10 @@ The object-detection/model directory should look somthing like this:
 
 1. To start the object detection module run the following command in the src directory of the module: `python main.py`
 2. To start the traffic light detection module run the following command in the src directory of the module: `python main.py`
+
+### Contributing Members
+----
+1. Vishalkrishna Bhosle
+2. Vivek Badani
+3. Yohann Jacob
+4. Rohit Tiwari
