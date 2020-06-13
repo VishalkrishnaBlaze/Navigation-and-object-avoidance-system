@@ -1,6 +1,6 @@
 # Navigation-and-object-avoidance-system
 ## A pre-final year mini-project
-----
+
 ### Description
 ----
 This Project is a Pre-final year mini-project for MS Ramaiah University of Applied Sciences. Tae aim of this project is to take a step towards helping the blind to better navigate and see the world around them which they struggle to see. 
