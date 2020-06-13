@@ -44,8 +44,8 @@ The project is divided into following modules:
 ### Getting Started
 ----
 #### Dependencies
-* python 3.5+
-* oython libraries
+* Python 3.5+
+* Python libraries
   * NumPy
   * opencv-python
   * gTTS
