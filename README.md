@@ -10,6 +10,7 @@ The project is divided into following modules:
 2. Traffic Light Detection, A OpenCV and numpy based traffic light detection system.
 
 ### Directory Structure
+----
 ```
 .
 ├── _object-detection
