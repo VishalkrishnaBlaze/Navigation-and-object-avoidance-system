@@ -6,7 +6,7 @@ import os
 from sound import tts
 
 # File paths
-model = os.path.abspath('..')+'//model//'
+model = os.path.abspath('..')+'//NOA//object-detection//model//'
 coco_path = os.path.join(model, "coco.names")
 yolo_cfg_path = os.path.join(model, "yolov3.cfg")
 yolo_weights_path = os.path.join(model, "yolov3.weights")
