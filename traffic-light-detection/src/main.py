@@ -11,11 +11,11 @@ obj = tts()
 def detect(filepath, file):
     """
     INPUT: 
-    1. filepath: The location of the the images captured by the pycam (the light folder).
-    2. file: The files spresent in the light directory (the traffic light imafes).
+    1. filepath: The location of the the images captured by the pycam (the data folder).
+    2. file: The files spresent in the data directory (the traffic light imafes).
 
     OUTPUT:
-    1. labeled images for the test images in the /light/result directory.
+    1. labeled images for the test images in the /data/result directory.
     2. detection result window displaying the labeled image.
     3. audio output of the instruction based on the labeled image.
     """
@@ -141,7 +141,7 @@ def detect(filepath, file):
 
 if __name__ == '__main__':
 
-    path = os.path.abspath('..')+'//light//'
+    path = os.path.abspath('..')+'//NOA//traffic-light-detection//data//'
     for f in os.listdir(path):
         print(f)
         if f.endswith('.jpg') or f.endswith('.JPG'):
