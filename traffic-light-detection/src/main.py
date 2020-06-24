@@ -61,30 +61,9 @@ def detect(filepath, file):
     r = 5
     bound = 4.0 / 10
 
-    # Red Labeling
-    if r_circles is not None:
-        r_circles = np.uint16(np.around(r_circles))
-
-        for i in r_circles[0, :]:
-            if i[0] > size[1] or i[1] > size[0]or i[1] > size[0]*bound:
-                continue
-
-            h, s = 0.0, 0.0
-            for m in range(-r, r):
-                for n in range(-r, r):
-
-                    if (i[1]+m) >= size[0] or (i[0]+n) >= size[1]:
-                        continue
-                    h += maskr[i[1]+m, i[0]+n]
-                    s += 1
-            if h / s > 50:
-                cv2.circle(cimg, (i[0], i[1]), i[2]+10, (0, 255, 0), 2)
-                cv2.circle(maskr, (i[0], i[1]), i[2]+30, (255, 255, 255), 2)
-                cv2.putText(cimg,'RED',(i[0], i[1]), font, 1,(255,0,0),2,cv2.LINE_AA)
-                # Audio output
-                obj.txt("Cross the road now! the Signal is red.")
-
     # Green Labeling
+    green_str = "Do not Cross the road now! the Signal is green."
+
     if g_circles is not None:
         g_circles = np.uint16(np.around(g_circles))
 
@@ -104,10 +83,13 @@ def detect(filepath, file):
                 cv2.circle(cimg, (i[0], i[1]), i[2]+10, (0, 255, 0), 2)
                 cv2.circle(maskg, (i[0], i[1]), i[2]+30, (255, 255, 255), 2)
                 cv2.putText(cimg,'GREEN',(i[0], i[1]), font, 1,(255,0,0),2,cv2.LINE_AA)
+                # print("   └──" + green_str)           # Uncomment this to see the voice output as a string
                 # Audio Output
-                obj.txt("Do not Cross the road now! the Signal is green.")
+                obj.txt(green_str)
 
     # Yellow Labeling
+    yellow_str = "Do not Cross the road now! the Signal is yellow."
+
     if y_circles is not None:
         y_circles = np.uint16(np.around(y_circles))
 
@@ -127,8 +109,36 @@ def detect(filepath, file):
                 cv2.circle(cimg, (i[0], i[1]), i[2]+10, (0, 255, 0), 2)
                 cv2.circle(masky, (i[0], i[1]), i[2]+30, (255, 255, 255), 2)
                 cv2.putText(cimg,'YELLOW',(i[0], i[1]), font, 1,(255,0,0),2,cv2.LINE_AA)
+                # print("   └──" + yellow_str)           # Uncomment this to see the voice output as a string
                 # Audio output
-                obj.txt("Do not Cross the road now! the Signal is yellow.")
+                obj.txt(yellow_str)
+
+    # Red Labeling
+    red_str = "Cross the road now! the Signal is red."
+
+    if r_circles is not None:
+        r_circles = np.uint16(np.around(r_circles))
+
+        for i in r_circles[0, :]:
+            if i[0] > size[1] or i[1] > size[0]or i[1] > size[0]*bound:
+                continue
+
+            h, s = 0.0, 0.0
+            for m in range(-r, r):
+                for n in range(-r, r):
+
+                    if (i[1]+m) >= size[0] or (i[0]+n) >= size[1]:
+                        continue
+                    h += maskr[i[1]+m, i[0]+n]
+                    s += 1
+            if h / s > 50:
+                cv2.circle(cimg, (i[0], i[1]), i[2]+10, (0, 255, 0), 2)
+                cv2.circle(maskr, (i[0], i[1]), i[2]+30, (255, 255, 255), 2)
+                cv2.putText(cimg,'RED',(i[0], i[1]), font, 1,(255,0,0),2,cv2.LINE_AA)
+                # print("   └──" + red_str)           # Uncomment this to see the voice output as a string
+                # Audio output
+                obj.txt(red_str)
+
 
     # Show the window with the labeled test image.
     cv2.imshow('Detections', cimg)
@@ -141,8 +151,8 @@ def detect(filepath, file):
 
 if __name__ == '__main__':
 
-    path = os.path.abspath('..')+'//NOA//traffic-light-detection//data//'
+    path = os.path.abspath('.')+'//traffic-light-detection//data//'
     for f in os.listdir(path):
-        print(f)
         if f.endswith('.jpg') or f.endswith('.JPG'):
+            print(f)
             detect(path, f)
