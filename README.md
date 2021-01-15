@@ -3,7 +3,7 @@
 
 ### Description
 ----
-This Project is a Pre-final year mini-project for MS Ramaiah University of Applied Sciences. Tae aim of this project is to take a step towards helping the blind to better navigate and see the world around them which they struggle to see. 
+This Project is a Pre-final year mini-project for MS Ramaiah University of Applied Sciences. The aim of this project is to take a step towards helping the blind to better navigate and see the world around them which they struggle to see. 
 
 The project is divided into following modules:
 1. Object Detection, A YOLOv3 based object detection system with upto 80 classes.
